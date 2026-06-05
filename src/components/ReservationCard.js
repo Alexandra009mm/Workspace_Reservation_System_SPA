@@ -41,22 +41,62 @@ export default function ReservationCard(reservation) {
   });
 
   return `
-    <article class="border rounded p-4">
-      <h3 class="font-bold">${workspace}</h3>
-      <p class="text-sm text-gray-600">${date} · ${startHour} - ${endHour}</p>
-      <p class="text-sm">Motivo: ${reason}</p>
-      <span class="inline-block text-xs px-2 py-1 rounded ${color}">${status}</span>
-      ${isAdmin() || canEdit ? `
-        <div class="flex gap-2 mt-3">
-          ${isAdmin() ? `
-            <button id="approve-${id}" class="text-xs px-2 py-1 bg-green-500 text-white rounded">Aprobar</button>
-            <button id="reject-${id}" class="text-xs px-2 py-1 bg-red-400 text-white rounded">Rechazar</button>
-            <button id="delete-${id}" class="text-xs px-2 py-1 bg-gray-400 text-white rounded">Eliminar</button>
-          ` : ""}
-          <button id="edit-${id}" class="text-xs px-2 py-1 bg-slate-500 text-white rounded">Editar</button>
-        </div>
-      ` : ""}
-    </article>
+<div class="w-full px-4 mb-6">
+  <article class="rounded-xl p-6 bg-white shadow-md transition-all hover:shadow-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+    
+    <!-- Bloque Izquierdo: Información principal -->
+    <div class="flex-1 min-w-0">
+      <!-- Título y Estado en línea -->
+      <div class="flex items-center gap-3 mb-2 flex-wrap">
+        <h3 class="text-lg font-bold text-black truncate">
+          ${workspace}
+        </h3>
+        <span class="inline-block text-xs font-semibold px-2.5 py-0.5 rounded-full ${color} shrink-0">
+          ${status}
+        </span>
+      </div>
+
+      <!-- Detalles en formato horizontal limpio -->
+      <div class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-600">
+        <p class="flex items-center gap-1">
+          <span class="font-medium text-gray-400">Fecha:</span>
+          <span class="text-gray-800">${date} </span>
+        </p>
+        <p class="flex items-center gap-1">
+          <span class="font-medium text-gray-400">Horario:</span>
+          <span class="text-gray-800">${startHour} - ${endHour}</span>
+        </p>
+        <span class="hidden md:inline text-gray-300">|</span>
+        <p class="flex items-center gap-1">
+          <span class="font-medium text-gray-400">Motivo:</span>
+          <span class="text-gray-800">${reason}</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Bloque Derecho: Acciones (Alineadas a la derecha en pantallas grandes) -->
+    ${isAdmin() || canEdit ? `
+      <div class="flex flex-wrap items-center gap-2 sm:justify-end shrink-0 pt-4 sm:pt-0 border-t sm:border-t-0 border-gray-100">
+        ${isAdmin() ? `
+          <button id="approve-${id}" class="text-xs font-semibold px-3 py-1.5 bg-green-500 text-white rounded-lg transition-colors hover:bg-green-600 shadow-sm">
+            Aprobar
+          </button>
+          <button id="reject-${id}" class="text-xs font-semibold px-3 py-1.5 bg-red-400 text-white rounded-lg transition-colors hover:bg-red-500 shadow-sm">
+            Rechazar
+          </button>
+          <button id="delete-${id}" class="text-xs font-semibold px-3 py-1.5 bg-gray-400 text-white rounded-lg transition-colors hover:bg-gray-500 shadow-sm">
+            Eliminar
+          </button>
+        ` : ""}
+        <button id="edit-${id}" class="text-xs font-semibold px-3 py-1.5 bg-slate-500 text-white rounded-lg transition-colors hover:bg-slate-600 shadow-sm">
+          Editar
+        </button>
+      </div>
+    ` : ""}
+
+  </article>
+</div>
+
   `;
 }
 

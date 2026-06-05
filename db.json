@@ -24,16 +24,6 @@
   ],
   "reservations": [
     {
-      "id": "a1",
-      "userId": 2,
-      "workspace": "Sala A",
-      "date": "2026-01-15",
-      "startHour": "08:00",
-      "endHour": "09:00",
-      "reason": "Sprint Planning",
-      "status": "pending"
-    },
-    {
       "id": "b2",
       "userId": 3,
       "workspace": "zona_wellness",
@@ -54,14 +44,34 @@
       "id": "fyztrQmMUw0"
     },
     {
-      "userId": "1",
-      "workspace": "sala_nap",
-      "date": "2026-06-14",
-      "startHour": "02:13",
-      "endHour": "10:13",
-      "reason": "dddd",
+      "userId": "2",
+      "workspace": "rincon_lectura",
+      "date": "2026-06-13",
+      "startHour": "10:22",
+      "endHour": "12:20",
+      "reason": "quiero relajarme",
       "status": "pending",
-      "id": "z19NVoPMooU"
+      "id": "UK6TMhmpk-8"
+    },
+    {
+      "userId": "2",
+      "workspace": "zona_wellness",
+      "date": "2026-06-13",
+      "startHour": "01:40",
+      "endHour": "10:42",
+      "reason": "fvfvdvf",
+      "status": "pending",
+      "id": "eqwgn-hMyZQ"
+    },
+    {
+      "userId": "2",
+      "workspace": "zona_wellness",
+      "date": "2026-06-13",
+      "startHour": "10:41",
+      "endHour": "22:41",
+      "reason": "leer los documentos",
+      "status": "pending",
+      "id": "FJ0RV0Dc6mI"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
