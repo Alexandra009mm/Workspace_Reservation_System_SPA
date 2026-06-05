@@ -3,16 +3,9 @@ import { deleteReservation, updateReservation } from "../services/reservation.se
 import { homeController } from "../controllers/home.controller.js";
 import { navigateTo } from "../router/router.js";
 
-// Colores de estado para visual rápido
-const statusColor = {
-  pending: "bg-yellow-100 text-yellow-800",
-  approved: "bg-green-100 text-green-800",
-  rejected: "bg-red-100 text-red-800",
-};
 
 export default function ReservationCard(reservation) {
   const { id, workspace, date, startHour, endHour, reason, status, userId } = reservation;
-  const color = statusColor[status] || "bg-gray-100 text-gray-800";
   const currentUser = getSession();
   const canEdit = isAdmin() || currentUser?.id === userId;
 
@@ -44,19 +37,18 @@ export default function ReservationCard(reservation) {
 <div class="w-full px-4 mb-6">
   <article class="rounded-xl p-6 bg-white shadow-md transition-all hover:shadow-lg flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
     
-    <!-- Bloque Izquierdo: Información principal -->
+
     <div class="flex-1 min-w-0">
-      <!-- Título y Estado en línea -->
+
       <div class="flex items-center gap-3 mb-2 flex-wrap">
         <h3 class="text-lg font-bold text-black truncate">
           ${workspace}
         </h3>
-        <span class="inline-block text-xs font-semibold px-2.5 py-0.5 rounded-full ${color} shrink-0">
+        <span class="inline-block text-xs font-semibold px-2.5 py-0.5 rounded-full ">
           ${status}
         </span>
       </div>
 
-      <!-- Detalles en formato horizontal limpio -->
       <div class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-600">
         <p class="flex items-center gap-1">
           <span class="font-medium text-gray-400">Fecha:</span>
@@ -74,7 +66,7 @@ export default function ReservationCard(reservation) {
       </div>
     </div>
 
-    <!-- Bloque Derecho: Acciones (Alineadas a la derecha en pantallas grandes) -->
+
     ${isAdmin() || canEdit ? `
       <div class="flex flex-wrap items-center gap-2 sm:justify-end shrink-0 pt-4 sm:pt-0 border-t sm:border-t-0 border-gray-100">
         ${isAdmin() ? `

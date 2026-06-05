@@ -72,6 +72,26 @@
       "reason": "leer los documentos",
       "status": "pending",
       "id": "FJ0RV0Dc6mI"
+    },
+    {
+      "userId": "2",
+      "workspace": "zona_wellness",
+      "date": "2026-06-14",
+      "startHour": "10:50",
+      "endHour": "02:48",
+      "reason": "vgkn",
+      "status": "pending",
+      "id": "EOOWD7kl0ak"
+    },
+    {
+      "userId": "2",
+      "workspace": "zona_wellness",
+      "date": "2026-06-06",
+      "startHour": "22:49",
+      "endHour": "10:50",
+      "reason": "olkl.k-",
+      "status": "pending",
+      "id": "0LA8tPopFm8"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
